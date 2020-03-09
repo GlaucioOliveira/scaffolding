@@ -10,7 +10,7 @@ namespace db.Services
 {
     public class ModeloService : BaseService<Modelo>
     {
-        public ModeloService(IPecaCompativelDatabaseSettings settings) : base(settings)
+        public ModeloService(IDatabaseSettings settings) : base(settings)
         {
         }
     }

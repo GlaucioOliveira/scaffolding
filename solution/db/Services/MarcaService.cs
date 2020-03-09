@@ -10,7 +10,7 @@ namespace db.Services
 {
     public class MarcaService : BaseService<Marca>
     {
-        public MarcaService(IPecaCompativelDatabaseSettings settings) : base(settings)
+        public MarcaService(IDatabaseSettings settings) : base(settings)
         {
         }
     }

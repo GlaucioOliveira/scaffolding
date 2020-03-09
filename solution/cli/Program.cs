@@ -12,11 +12,10 @@ namespace cli
     class Program
     {
         #region [Variáveis Globais]
-        static PecaCompativelDatabaseSettings dbConnection;
+        static DatabaseSettings dbConnection;
         static PecaService pecadb;
         static MarcaService marcadb;
         static ModeloService modelodb;
-
         #endregion
 
         static void Main(string[] args)
@@ -139,7 +138,7 @@ namespace cli
             //mongodb://localhost:27017
             string ConnectionString = "mongodb://127.0.0.1:1234/?readPreference=primary&appname=MongoDB%20Compass&ssl=false";
 
-            dbConnection = new PecaCompativelDatabaseSettings()
+            dbConnection = new DatabaseSettings()
             {
                 DatabaseName = "pecacompativel",
                 ConnectionString = ConnectionString,
@@ -148,14 +147,14 @@ namespace cli
             
             pecadb = new PecaService(dbConnection);
 
-            marcadb = new MarcaService(new PecaCompativelDatabaseSettings()
+            marcadb = new MarcaService(new DatabaseSettings()
             {
                 DatabaseName = "pecacompativel",
                 ConnectionString = ConnectionString,
                 Marca = "marca"
             });
 
-            modelodb = new ModeloService(new PecaCompativelDatabaseSettings()
+            modelodb = new ModeloService(new DatabaseSettings()
             {
                 DatabaseName = "pecacompativel",
                 ConnectionString = ConnectionString,

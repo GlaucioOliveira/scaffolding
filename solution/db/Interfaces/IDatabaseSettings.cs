@@ -4,7 +4,7 @@ using System.Text;
 
 namespace db.Interfaces
 {
-    public interface IPecaCompativelDatabaseSettings
+    public interface IDatabaseSettings
     {
         string Peca { get; set; }
         string Marca { get; set; }

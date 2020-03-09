@@ -6,7 +6,7 @@ using db.Interfaces;
 
 namespace db.Models
 {
-    public class PecaCompativelDatabaseSettings : IPecaCompativelDatabaseSettings
+    public class DatabaseSettings : IDatabaseSettings
     {
         public string Peca { get; set; }
         public string Marca { get; set; }

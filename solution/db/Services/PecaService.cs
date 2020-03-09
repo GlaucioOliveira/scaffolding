@@ -11,7 +11,7 @@ namespace db.Services
 {
     public class PecaService : BaseService<Peca>
     {
-        public PecaService(IPecaCompativelDatabaseSettings settings) : base(settings)
+        public PecaService(IDatabaseSettings settings) : base(settings)
         {
         }
 
@@ -23,7 +23,7 @@ namespace db.Services
         public List<PecaQuantidadePorModelo> ListarQuantidadePecasAlternativas()
         {
             //agrupa a lista de peças cadastradas pelo id do Modelo,
-            //e traz a quantidade somada de registros.
+            //e tras a quantidade somada de registros.
             var listaQuantidadePecasPorModelo = _collection.Aggregate()
                            .Group(x => x.ModeloOrigem,
                            g => new PecaQuantidadePorModelo()

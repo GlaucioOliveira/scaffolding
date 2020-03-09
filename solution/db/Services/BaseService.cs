@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using db.Interfaces;
 using System;
+using db.Util;
 
 namespace db.Services
 {
@@ -9,13 +10,15 @@ namespace db.Services
     {
         internal IMongoCollection<T> _collection;
 
-        public BaseService(IPecaCompativelDatabaseSettings settings)
+        public BaseService(IDatabaseSettings settings) 
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
+            var collectionName = getCollectionName(settings);
 
-            var tmp = getCollectionName(settings);
-            _collection = database.GetCollection<T>(tmp);
+            MongoDBUtil.GenerateTableIfNotExist(database, collectionName);
+
+            _collection = database.GetCollection<T>(collectionName);
         }
 
         public virtual List<T> Get() => _collection.Find(x => true).ToList();
@@ -41,7 +44,7 @@ namespace db.Services
         {
             _collection.DeleteMany(x => x.Id == null || x.Id != null);
         }
-        private string getCollectionName(IPecaCompativelDatabaseSettings settings)
+        private string getCollectionName(IDatabaseSettings settings)
         {
             string serviceName = "";
             string collectionName = "";

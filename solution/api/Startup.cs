@@ -31,11 +31,11 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             // requires using Microsoft.Extensions.Options
-            services.Configure<PecaCompativelDatabaseSettings>(
-                Configuration.GetSection(nameof(PecaCompativelDatabaseSettings)));
-
-            services.AddSingleton<IPecaCompativelDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<PecaCompativelDatabaseSettings>>().Value);
+            services.Configure<DatabaseSettings>(
+                Configuration.GetSection(nameof(DatabaseSettings)));
+            
+            services.AddSingleton<IDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
             services.AddSingleton<PecaService>();
             services.AddSingleton<MarcaService>();
