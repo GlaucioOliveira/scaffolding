@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using db.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace pecacompativel.db.Models
+namespace db.Models
 {
-    public class Peca
+    public class Peca : IMongoDBCollection
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

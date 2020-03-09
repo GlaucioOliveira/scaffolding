@@ -11,10 +11,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using pecacompativel.db.Models;
-using pecacompativel.db.Services;
 
-namespace pecacompativel.api
+using db.Interfaces;
+using db.Models;
+using db.Services;
+
+namespace api
 {
     public class Startup
     {

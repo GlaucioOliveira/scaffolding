@@ -1,6 +1,6 @@
 ﻿using System;
-using pecacompativel.db.Models;
-using pecacompativel.db.Services;
+using db.Models;
+using db.Services;
 using System.Text.Json;
 using System.IO;
 using System.Collections.Generic;
@@ -143,7 +143,7 @@ namespace cli
             {
                 DatabaseName = "pecacompativel",
                 ConnectionString = ConnectionString,
-                PecaCollectionName = "pecacompativel"
+                Peca = "pecacompativel"
             };
             
             pecadb = new PecaService(dbConnection);
@@ -152,14 +152,14 @@ namespace cli
             {
                 DatabaseName = "pecacompativel",
                 ConnectionString = ConnectionString,
-                MarcaCollectionName = "marca"
+                Marca = "marca"
             });
 
             modelodb = new ModeloService(new PecaCompativelDatabaseSettings()
             {
                 DatabaseName = "pecacompativel",
                 ConnectionString = ConnectionString,
-                ModeloCollectionName = "modelo"
+                Modelo = "modelo"
             });
         }
     }

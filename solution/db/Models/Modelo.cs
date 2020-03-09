@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using db.Services;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using pecacompativel.db.Util;
+using db.Util;
+using db.Interfaces;
 
-namespace pecacompativel.db.Models
+namespace db.Models
 {
-    public class Modelo
+    public class Modelo : IMongoDBCollection
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -19,6 +21,7 @@ namespace pecacompativel.db.Models
 
         public string MarcaNome { get; set; }
         public string MarcaId { get; set; }
+
         [BsonIgnore]
         public int QuantidadeDePecas { get; set; }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace pecacompativel.db.Util
+namespace db.Util
 {
     public static class StringUtil
     {

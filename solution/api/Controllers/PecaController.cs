@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using pecacompativel.db.Services;
-using pecacompativel.db.Models;
+using db.Services;
+using db.Models;
 using Microsoft.AspNetCore.Cors;
 using System.Net.Http;
 using System.Text;
 
-namespace pecacompativel.api.Controllers
+namespace api.Controllers
 {
     //[DisableCors]
     [ApiController]

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using pecacompativel.db.Services;
-using pecacompativel.db.Models;
+using db.Services;
+using db.Models;
 
-namespace pecacompativel.api.Controllers
+namespace api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
